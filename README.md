@@ -1,7 +1,6 @@
 # cs6886w-vgg6
 Asssignment 1 for cs6886w-vgg6
 
-Commands for your README (copy/paste)
 
 Environment
 
@@ -53,15 +52,7 @@ W&B logging (Q3, optional)
 
 wandb login
 python train.py --wandb --out_dir results/baseline --seed 42
-# in W&B UI: make parallel-coordinates & scatter plots, export images and paste into PDF
 
-What you still need to do locally
-
-Run the commands (baseline + sweeps).
-
-Paste your best validation accuracy config (Q4) and the test top-1.
-
-Insert the plots (from results/*/*.png or W&B exports) into the PDF.
 
 Upload the trained best.pt, CSV logs, and code to your GitHub repo; put the link in the PDF.
 
