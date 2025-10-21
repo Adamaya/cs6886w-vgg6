@@ -2,11 +2,12 @@
 Asssignment 1 for cs6886w-vgg6
 
 
-Environment
-
+# Environment
+```
 conda create -n vgg6 python=3.10 -y
 conda activate vgg6
 pip install torch torchvision matplotlib pandas
+```
 # optional:
 pip install wandb
 
@@ -35,25 +36,17 @@ python train.py --out_dir results/opt_nadam      --optimizer nadam --lr 1e-3 --s
 
 Batch size / epochs / LR (Q2c)
 ```
-for bs in 64 128 256; do
-  python train.py --out_dir results/bs_$bs --batch_size $bs --seed 42
-done
+for %B in (64 128 256) do python train.py --out_dir results/bs_%B --batch_size %B --wandb --seed 42
 
-for ep in 50 100 200; do
-  python train.py --out_dir results/ep_$ep --epochs $ep --seed 42
-done
+for %E in (50 100 200) do python train.py --out_dir results/ep_%E --epochs %E --wandb --seed 42
 
-for lr in 0.01 0.05 0.1; do
-  python train.py --out_dir results/lr_${lr//./} --lr $lr --seed 42
-done
+for %L in (0.01 0.05 0.1) do (set "lr=%L" & call set "lrmod=%%lr:.=%%" & call python train.py --out_dir results/lr_%%lrmod%% --lr %L --wandb --seed 42)
 ```
 
 W&B logging (Q3, optional)
-
+```
 wandb login
 python train.py --wandb --out_dir results/baseline --seed 42
-
+```
 
 Upload the trained best.pt, CSV logs, and code to your GitHub repo; put the link in the PDF.
-
-If you want, I can also generate a short README.md and a results table template you can drop into your repo.
