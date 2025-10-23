@@ -57,8 +57,10 @@ def make_layers(cfg, batch_norm=True, activation=nn.ReLU):
             layers += [nn.MaxPool2d(kernel_size=2, stride=2)]
         else:
             conv2d = nn.Conv2d(in_ch, v, kernel_size=3, padding=1, bias=not batch_norm)
-            if batch_norm:
+            if batch_norm and (activation == nn.ReLU or activation == nn.SiLU):
                 layers += [conv2d, nn.BatchNorm2d(v), Act(inplace=True)]
+            elif batch_norm and (activation != nn.ReLU or activation != nn.SiLU):
+                layers += [conv2d, nn.BatchNorm2d(v)]
             else:
                 layers += [conv2d, Act(inplace=True)]
             in_ch = v
@@ -207,7 +209,7 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--data_root", type=str, default="./data")
     p.add_argument("--out_dir", type=str, default="./results/baseline")
-    p.add_argument("--epochs", type=int, default=30)
+    p.add_argument("--epochs", type=int, default=200)
     p.add_argument("--batch_size", type=int, default=128)
     p.add_argument("--optimizer", type=str, default="sgd", choices=["sgd","adam","rmsprop","adagrad","nadam"])
     p.add_argument("--nesterov", action="store_true")
