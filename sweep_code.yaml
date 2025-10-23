@@ -1,0 +1,72 @@
+program: train.py
+method: bayes
+metric:
+  goal: maximize
+  name: val_acc
+parameters:
+  wandb_project:
+    values:
+      - cs6886w-vgg6
+    distribution: categorical
+  cutout_length:
+    max: 32
+    min: 8
+    distribution: int_uniform
+  weight_decay:
+    max: 0.001
+    min: 0.00025
+    distribution: uniform
+  batch_size:
+    max: 512
+    min: 32
+    distribution: int_uniform
+  activation:
+    values:
+      - relu
+      - silu
+      - gelu
+      - tanh
+      - sigmoid
+    distribution: categorical
+  scheduler:
+    values:
+      - cosine
+    distribution: categorical
+  optimizer:
+    values:
+      - sgd
+      - adam
+      - rmsprop
+      - nadam
+      - adagrad
+    distribution: categorical
+  data_root:
+    values:
+      - ./data
+    distribution: categorical
+  nesterov:
+    values:
+      - "true"
+      - "false"
+    distribution: categorical
+  momentum:
+    max: 1.8
+    min: 0.45
+    distribution: uniform
+  epochs:
+    max: 250
+    min: 50
+    distribution: int_uniform
+  no_bn:
+    values:
+      - "true"
+      - "false"
+    distribution: categorical
+  seed:
+    max: 84
+    min: 21
+    distribution: int_uniform
+  lr:
+    max: 0.2
+    min: 0.0005
+    distribution: uniform
