@@ -34,7 +34,7 @@ python train.py --out_dir results/opt_adagrad    --optimizer adagrad --lr 1e-2 -
 python train.py --out_dir results/opt_nadam      --optimizer nadam --lr 1e-3 --scheduler cosine --wandb --seed 42
 ```
 
-Batch size / epochs / LR (Q2c)
+Batch size / epochs / LR (Q2c) (windows cmd)
 ```
 for %B in (64 128 256) do python train.py --out_dir results/bs_%B --batch_size %B --wandb --seed 42
 
@@ -44,4 +44,41 @@ for %L in (0.01 0.05 0.1) do (set "lr=%L" & call set "lrmod=%%lr:.=%%" & call py
 ```
 
 
-Upload the trained best.pt, CSV logs, and code to your GitHub repo; put the link in the PDF.
+### Basic Usage
+```bash
+# Test the baseline model
+python test.py --model_path "./results/baseline/best.pt" --data_root "../../data"
+
+# Test with custom batch size
+python test.py --model_path "./results/baseline/best.pt" --data_root "../../data" --batch_size 64
+
+# Test without plots (faster)
+python test.py --model_path "./results/baseline/best.pt" --data_root "../../data" --no_plots
+
+# Test with detailed analysis
+python test.py --model_path "./results/baseline/best.pt" --data_root "../../data" --detailed_analysis
+```
+
+### Save Results
+```bash
+# Save plots and summary to files
+python test.py --model_path "./results/baseline/best.pt" --data_root "../../data" --save_plots --plot_dir "./test_results"
+```
+
+### Best Configuration test
+```bash
+python test.py --model_path "./results/bs_256/best.pt"  --data_root "../../data" --detailed_analysis
+```
+
+## Command Line Options
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `--model_path` | `./results/baseline/best.pt` | Path to the trained model checkpoint |
+| `--data_root` | `./data` | Path to CIFAR-10 dataset |
+| `--batch_size` | `128` | Batch size for testing |
+| `--save_plots` | `False` | Save plots to files |
+| `--plot_dir` | `./test_results` | Directory to save plots |
+| `--seed` | `42` | Random seed for reproducibility |
+| `--no_plots` | `False` | Skip plotting visualizations |
+| `--detailed_analysis` | `False` | Perform detailed prediction analysis |
