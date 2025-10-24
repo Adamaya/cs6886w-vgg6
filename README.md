@@ -2,29 +2,29 @@
 Asssignment 1 for cs6886w-vgg6
 
 
-# Environment
+# Environment Setup to train and test the model
+- Download the anaconda software and install it. [Download Link](https://www.anaconda.com/download)
+- Run the following commands to configure the runtime environment:
 ```
 conda create -n vgg6 python=3.10 -y
 conda activate vgg6
-pip install torch torchvision matplotlib pandas
+pip install torch torchvision matplotlib pandas scikit-learn tqdm seaborn wandb
 ```
-# optional:
-pip install wandb
 
 
-Baseline run (Q1)
+# Baseline run (Q1)
 ```
 python train.py --out_dir results/baseline --epochs 200 --batch_size 128  --optimizer sgd --lr 0.1 --momentum 0.9 --weight_decay 5e-4   --scheduler cosine --activation relu --seed 42
 ```
 
-Activation sweep (Q2a)
+# Activation sweep (Q2a)
 ```
 for act in relu gelu silu tanh sigmoid; do
   python train.py --out_dir results/act_$act --activation $act --seed 42
 done
 ```
 
-Optimizer sweep (Q2b)
+# Optimizer sweep (Q2b)
 ```
 python train.py --out_dir results/opt_sgd        --optimizer sgd --lr 0.1  --momentum 0.9 --scheduler cosine --seed 42
 python train.py --out_dir results/opt_nesterov   --optimizer sgd --lr 0.1  --momentum 0.9 --nesterov --scheduler cosine --seed 42
