@@ -1,0 +1,32 @@
+wandb_version: 1
+
+activation:
+  value: sigmoid
+batch_size:
+  value: 128
+cutout_length:
+  value: 27
+data_root:
+  value: ./data
+epochs:
+  value: 219
+lr:
+  value: 0.029465730846383313
+momentum:
+  value: 1.17005290512513
+nesterov:
+  value: 'true'
+no_bn:
+  value: 'false'
+optimizer:
+  value: adam
+out_dir:
+  value: results/act_gelu
+scheduler:
+  value: cosine
+seed:
+  value: 49
+wandb_project:
+  value: cs6886w-vgg6
+weight_decay:
+  value: 0.00048100179879828793

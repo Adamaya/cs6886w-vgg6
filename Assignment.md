@@ -165,10 +165,17 @@ measured results:
 Plots were produced automatically; W&B runs are grouped into a project, and we export the charts below.
 
 #### (a) W&B parallel-coordinates plot: each line = a run; axes: activation, batch size, epochs, LR, momentum, optimizer, weight decay, val_acc.
+![W&B parallel-coordinates plot](./report/images/W&B-parallel-coordinates-plot.png)
 
-## (b) Validation accuracy vs step (scatter)
+#### (b) Validation accuracy vs step (scatter)
+![Validation accuracy vs step (scatter)](./report/images/Validation_accuracy_vs_step_scatter.png)
 
-## (c) Four curves – train_acc, train_loss, val_acc, val_loss 
+#### (c) Four curves – train_acc, train_loss, val_acc, val_loss (showing top 10)
+Training loss vs epoch
+![Train loss](./report/images/train_loss.png)
+![Train Accuracy](./report/images/train_acc.png)
+![Validation loss](./report/images/val_loss.png)
+![Validation Accuracy](./report/images/val_acc.png)
 
 # Question 4. Final model performance
 

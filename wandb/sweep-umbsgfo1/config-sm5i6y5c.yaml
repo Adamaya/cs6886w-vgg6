@@ -1,0 +1,32 @@
+wandb_version: 1
+
+activation:
+  value: relu
+batch_size:
+  value: 143
+cutout:
+  value: 'true'
+cutout_length:
+  value: 26
+data_root:
+  value: ./data
+epochs:
+  value: 211
+lr:
+  value: 0.06642478104665762
+momentum:
+  value: 1.1447067473092043
+nesterov:
+  value: 'true'
+optimizer:
+  value: sgd
+out_dir:
+  value: results/opt_sgd
+scheduler:
+  value: cosine
+seed:
+  value: 35
+wandb_project:
+  value: cs6886w-vgg6
+weight_decay:
+  value: 0.00035495799740789096

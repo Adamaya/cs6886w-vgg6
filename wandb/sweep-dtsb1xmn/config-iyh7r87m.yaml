@@ -1,0 +1,32 @@
+wandb_version: 1
+
+activation:
+  value: gelu
+batch_size:
+  value: 203
+cutout_length:
+  value: 8
+data_root:
+  value: ./data
+epochs:
+  value: 144
+lr:
+  value: 0.01892154965637516
+momentum:
+  value: 0.7014512853598558
+nesterov:
+  value: 'true'
+no_bn:
+  value: 'true'
+optimizer:
+  value: rmsprop
+out_dir:
+  value: results/act_tanh
+scheduler:
+  value: none
+seed:
+  value: 34
+wandb_project:
+  value: cs6886w-vgg6
+weight_decay:
+  value: 0.0002705406948984446

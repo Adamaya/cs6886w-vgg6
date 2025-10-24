@@ -1,0 +1,32 @@
+wandb_version: 1
+
+activation:
+  value: sigmoid
+batch_size:
+  value: 105
+cutout_length:
+  value: 32
+data_root:
+  value: ./data
+epochs:
+  value: 233
+lr:
+  value: 0.10722180781529655
+momentum:
+  value: 0.4868414891652528
+nesterov:
+  value: 'true'
+no_bn:
+  value: 'false'
+optimizer:
+  value: sgd
+out_dir:
+  value: results/opt_sgd
+scheduler:
+  value: none
+seed:
+  value: 78
+wandb_project:
+  value: cs6886w-vgg6
+weight_decay:
+  value: 0.0007195163927924779
